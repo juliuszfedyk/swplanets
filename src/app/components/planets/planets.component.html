@@ -6,24 +6,23 @@
          placeholder="search here..."
   />
 </div>
-<div class="planets__loader" *ngIf="loading">
-  <app-planets-loader></app-planets-loader>
-</div>
-<div *ngFor="let planet of displayedPlanets; let i = index" class="planets-item">
-  <div class="planets-item__thumb">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect height="100" width="100" fill="rgb(34, 34, 59)"></rect>
-      <circle cx="50" cy="50" [attr.r]="planet.diameter / 300" fill="rgb(201, 173, 167)"></circle>
-    </svg>
-  </div>
-  <div class="planets-item__content">
-    <h3 class="planets-item__name">
-      {{ planet.name }}
-    </h3>
-    <div class="planets-item__stats">
-      <strong>terrain: </strong>{{planet.terrain}}
+<app-planets-loader *ngIf="loading"></app-planets-loader>
+<div class="planets-list">
+  <div *ngFor="let planet of displayedPlanets; let i = index" class="planets-list-item">
+    <div class="planets-list-item__thumb">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect height="100" width="100" fill="rgb(34, 34, 59)"></rect>
+        <circle cx="50" cy="50" [attr.r]="planet.diameter / 300" fill="rgb(201, 173, 167)"></circle>
+      </svg>
     </div>
-    <button class="planets-item__button-more" [routerLink]="[planet.id]">more</button>
+    <div class="planets-list-item__content">
+      <h3 class="planets-list-item__name">
+        {{ planet.name }}
+      </h3>
+      <div>
+        <button class="planets-list-item__button-more" [routerLink]="[planet.id]">more</button>
+      </div>
+    </div>
   </div>
 </div>
 <div class="planets-paginator">
@@ -41,7 +40,7 @@
   <div class="planets-paginator__options">
     <span class="planets-paginator__options-info">per page:</span>
     <a class="planets-paginator__option"
-      *ngFor="let option of planetsPerPageOptions"
+       *ngFor="let option of planetsPerPageOptions"
        [class.planets-paginator__option--current]="planetsPerPage === option"
        [routerLink]="['']"
        [queryParams]="{planetsPerPage: option}"
@@ -50,4 +49,3 @@
     </a>
   </div>
 </div>
-

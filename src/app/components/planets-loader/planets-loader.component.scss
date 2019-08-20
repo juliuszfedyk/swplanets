@@ -1,4 +1,5 @@
 @import "../../../assets/colors";
+@import "../../../assets/utils";
 $loaderColor: $color4;
 
 .planets-loader {
@@ -6,6 +7,13 @@ $loaderColor: $color4;
   width: 60vw;
   height: 15vw;
   margin: 10px auto;
+
+  @include mediaQuery("medium") {
+    width: 30vw;
+    height: 7.5vw;
+  }
+
+
 
   &__orbit-animation {
     width: 25%;

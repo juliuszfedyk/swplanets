@@ -1,9 +1,10 @@
+@import "../assets/utils";
 .app-logo {
   display: flex;
   justify-content: center;
   padding: 20px;
-
   &__image {
+    max-width: 500px;
     width: 80%;
   }
 }
