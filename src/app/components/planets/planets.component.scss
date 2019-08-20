@@ -1,0 +1,101 @@
+@import "../../../assets/colors";
+
+.planets-item {
+  display: flex;
+  width: 100%;
+  background-color: $color2;
+  margin-bottom: 1px;
+  &__thumb {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 25%;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 75%;
+    font-size: 0.75em;
+    position: relative;
+  }
+
+  &__name {
+    font-size: 1.5em;
+  }
+
+  &__button-more {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: $color4;
+
+  }
+}
+
+.planets-search {
+  margin: 10px 0;
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    padding: .5em;
+    width: 100%;
+    border: none;
+    background-color: $color5;
+  }
+}
+
+.planets-paginator {
+  &__pages,
+  &__options {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.2em;
+    justify-content: space-between;
+  }
+
+  &__page,
+  &__option {
+    padding: 4px 6px;
+    display: block;
+    text-align: center;
+    flex: 1;
+    text-decoration: none;
+    &:visited {
+      color: $color4;
+    }
+  }
+
+  &__pages {
+    background-color: $color2;
+  }
+
+  &__page {
+    &:hover {
+      background-color: $color4;
+      color: $color2;
+    }
+    &--current {
+      color: white;
+    }
+  }
+
+  &__options {
+    background-color: $color3;
+  }
+
+  &__options-info {
+    font-size: .8em;
+    line-height: 1.2em;
+  }
+  &__option {
+    &:hover {
+      background-color: $color2;
+      color: $color4;
+    }
+    &--current {
+      color: white !important;
+    }
+  }
+}

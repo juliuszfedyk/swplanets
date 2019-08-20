@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import './assets/resets';
+@import './assets/_colors.scss';
+html,
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: $color1;
+  color: $color5;
+  padding: 1px;
+}

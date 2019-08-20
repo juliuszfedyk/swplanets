@@ -1,0 +1,19 @@
+@import '../../../assets/colors';
+.notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  margin: 5%;
+  box-sizing: border-box;
+  padding: 5%;
+  color: $color1;
+  background-color: $color4;
+  box-shadow: 10px 10px 10px $color1;
+  z-index: 1000000;
+
+  &__close {
+    margin-bottom: 10px;
+    float: right;
+  }
+}

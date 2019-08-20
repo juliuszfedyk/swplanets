@@ -1,0 +1,39 @@
+<button class="planet__button-back"
+        (click)="onBack()"
+>back</button>
+<app-planets-loader *ngIf="!planet"></app-planets-loader>
+<div class="planet" *ngIf="planet">
+  <h1 class="planet__name">{{planet.name}}</h1>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">climate:</div>
+      <div class="planet__parameter-value">{{planet.climate}}</div>
+    </div>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">diameter:</div>
+      <div class="planet__parameter-value">{{planet.diameter}}</div>
+    </div>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">gravity:</div>
+      <div class="planet__parameter-value">{{planet.gravity}}</div>
+    </div>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">orbital_period:</div>
+      <div class="planet__parameter-value">{{planet.orbital_period}}</div>
+    </div>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">population:</div>
+      <div class="planet__parameter-value">{{planet.population}}</div>
+    </div>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">rotation_period:</div>
+      <div class="planet__parameter-value">{{planet.rotation_period}}</div>
+    </div>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">surface_water:</div>
+      <div class="planet__parameter-value">{{planet.surface_water}}</div>
+    </div>
+    <div class="planet__parameter-group">
+      <div class="planet__parameter-name">terrain:</div>
+      <div class="planet__parameter-value">{{planet.terrain}}</div>
+    </div>
+</div>
