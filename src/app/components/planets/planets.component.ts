@@ -1,16 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PlanetsService} from '../../services/planets.service';
 import {Planet} from '../../models/planet.model';
 import {map} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NotificationsService} from '../../services/notifications.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-planets',
   templateUrl: './planets.component.html',
   styleUrls: ['./planets.component.scss']
 })
-export class PlanetsComponent implements OnInit {
+export class PlanetsComponent implements OnInit, OnDestroy {
+  private subscriptions = new Subscription();
   private _planets: Planet[] = [];
   private _filteredPlanets: Planet[] = [];
   public loading = true;
@@ -51,7 +53,8 @@ export class PlanetsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.planetsService.getPlanets$().pipe(
+    this.subscriptions.add(
+      this.planetsService.getPlanets$().pipe(
       map((planet: any) => {
         return {
           ...planet,
@@ -67,8 +70,14 @@ export class PlanetsComponent implements OnInit {
       () => {
         this.loading = false;
       }
-    );
-    this.route.queryParams.subscribe(this.handleQueryParamsChange.bind(this));
+    ));
+    this.subscriptions.add(
+      this.route.queryParams
+        .subscribe(this.handleQueryParamsChange.bind(this)));
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   private handleQueryParamsChange({page, planetsPerPage}) {
@@ -113,5 +122,4 @@ export class PlanetsComponent implements OnInit {
     this.displayedPlanets = this.filteredPlanets
       .slice(from, to);
   }
-
 }
