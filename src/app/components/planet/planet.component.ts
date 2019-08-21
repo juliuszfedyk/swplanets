@@ -39,7 +39,7 @@ export class PlanetComponent implements OnInit, OnDestroy {
     }
   }
 
-  private onBack() {
+  public onBack() {
     this.location.back();
   }
 
